@@ -2,10 +2,54 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Test</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alexander Ruf – Research & CV</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<h1>GitHub Pages Test</h1>
+<header>
+  <img src="cv_pic.png" alt="Alexander Ruf" class="profile-pic">
+  <h1>Alexander Ruf</h1>
+  <p>Physical & Theoretical Chemistry | Astrochemistry | Data-driven Networks</p>
+  <nav>
+    <ul>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#fair">FAIR Data</a></li>
+      <li><a href="#group">Group</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section id="intro"></section>
+  <section id="research"></section>
+  <section id="fair"></section>
+  <section id="group"></section>
+  <section id="cv"></section>
+  <section id="teaching"></section>
+</main>
+
+<footer>
+  <p>&copy; Alexander Ruf – <a href="mailto:alexander.ruf@example.com">alexander.ruf@example.com</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+async function loadMD(id, file) {
+  const res = await fetch(file);
+  const text = await res.text();
+  document.getElementById(id).innerHTML = marked.parse(text);
+}
+
+// Load all Markdown sections
+loadMD('intro', 'index.md');
+loadMD('research', 'research.md');
+loadMD('group', 'group.md');
+loadMD('cv', 'cv.md');
+loadMD('teaching', 'teaching.md');
+</script>
 </body>
 </html>
 
