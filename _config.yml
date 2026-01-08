@@ -1,0 +1,5 @@
+title: Alexander Ruf
+description: Astrochemical Data Science | Molecular Complexity | Chemical Networks
+theme: jekyll-theme-minimal
+markdown: kramdown
+permalink: /:basename/
