@@ -2,54 +2,40 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Alexander Ruf</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Alexander Ruf – Research & CV</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="_style.css">
 </head>
 <body>
-<header>
-  <img src="cv_pic.png" alt="Alexander Ruf" class="profile-pic">
-  <h1>Alexander Ruf</h1>
-  <p>Physical & Theoretical Chemistry | Astrochemistry | Data-driven Networks</p>
-  <nav>
-    <ul>
-      <li><a href="#research">Research</a></li>
-      <li><a href="#fair">FAIR Data</a></li>
-      <li><a href="#group">Group</a></li>
-      <li><a href="#cv">CV</a></li>
-      <li><a href="#teaching">Teaching</a></li>
-    </ul>
-  </nav>
-</header>
 
-<main>
-  <section id="intro"></section>
-  <section id="research"></section>
-  <section id="fair"></section>
-  <section id="group"></section>
-  <section id="cv"></section>
-  <section id="teaching"></section>
-</main>
+<nav class="topnav">
+  <a href="#" onclick="loadPage('home.md')">Home</a>
+  <a href="#" onclick="loadPage('research.md')">Research</a>
+  <a href="#" onclick="loadPage('cv.md')">CV</a>
+  <a href="#" onclick="loadPage('teaching.md')">Teaching</a>
+</nav>
 
-<footer>
-  <p>&copy; Alexander Ruf – <a href="mailto:alexander.ruf@example.com">alexander.ruf@example.com</a></p>
-</footer>
+<div class="page">
+  <div class="left" id="sidebar"></div>
+  <div class="right" id="content"></div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
-async function loadMD(id, file) {
-  const res = await fetch(file);
-  const text = await res.text();
-  document.getElementById(id).innerHTML = marked.parse(text);
+function loadPage(file) {
+  fetch(file)
+    .then(r => r.text())
+    .then(md => {
+      const html = marked.parse(md);
+      const parts = html.split("<!--SPLIT-->");
+      document.getElementById("sidebar").innerHTML = parts[0] || "";
+      document.getElementById("content").innerHTML = parts[1] || html;
+    });
 }
 
-// Load all Markdown sections
-loadMD('intro', 'index.md');
-loadMD('research', 'research.md');
-loadMD('group', 'group.md');
-loadMD('cv', 'cv.md');
-loadMD('teaching', 'teaching.md');
+loadPage("home.md");
 </script>
+
 </body>
 </html>
 
