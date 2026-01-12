@@ -56,4 +56,10 @@ a {
   margin-right: 20px;
   font-weight: 500;
 }
+.right img,
+.left img {
+  max-width: 220px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
 

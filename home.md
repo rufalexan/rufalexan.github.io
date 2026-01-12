@@ -5,7 +5,7 @@
 **Physical & Theoretical Chemistry**  
 Astrochemistry · Data-driven Molecular Networks  
 
-alexander.ruf@…  
+rufalexan@gmail.com
 ORCID · Google Scholar · GitHub  
 
 <!--SPLIT-->
