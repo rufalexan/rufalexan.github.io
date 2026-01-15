@@ -1,0 +1,113 @@
+/* -----------------------------
+   Global Styles
+----------------------------- */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20pt;
+  background: #fff;
+  color: #111;
+}
+
+/* -----------------------------
+   Large Name Black Box
+----------------------------- */
+.name {
+  font-size: 70pt;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  color: #ffffff;
+  background-color: #000000;
+  padding: 1rem 1rem;
+  margin-top: 0cm;
+  margin-bottom: 3cm;
+  border-radius: 0.3rem;
+}
+
+/* -----------------------------
+   Subline Text
+----------------------------- */
+strong {
+  font-weight: 600;
+  color: #444;
+}
+
+/* -----------------------------
+   Landing Page Container
+----------------------------- */
+.left {
+  padding: 80px 40px 120px 40px;
+  max-width: 700px;
+  text-align: left;
+  position: relative;
+}
+
+/* -----------------------------
+   Portrait Right-Aligned
+----------------------------- */
+.profile {
+  width: 20%;
+  max-width: 150px;
+  border-radius: 50%;
+  margin-left: 5cm;
+  float: right;
+  margin-top: -10cm; /* adjust as needed */
+}
+
+/* -----------------------------
+   Top Navigation & Footer
+----------------------------- */
+.navbar-style {
+  font-family: "Courier New", monospace;
+  font-size: 8pt;
+  color: #666;
+  letter-spacing: 0.04em;
+  background: rgba(255,255,255,0.85);
+  padding: 4px 40px 4px 12px;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  position: fixed;
+  right: 0;
+  opacity: 0; /* hidden by default */
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.topnav.navbar-style { top: 28px; }
+footer.navbar-style { bottom: 28px; }
+
+.navbar-style a { color: #666; text-decoration: none; margin-left: 0.6em; }
+.navbar-style a:hover { text-decoration: underline; }
+.icon { font-weight: 600; }
+
+/* Show nav/footer when active */
+.navbar-style.active { opacity: 1; }
+
+/* -----------------------------
+   Responsive Mobile
+----------------------------- */
+@media (max-width: 700px) {
+  .profile {
+    width: 100px;
+    margin-left: 0;
+    float: none;
+    display: block;
+    margin-top: 1em;
+  }
+  .left {
+    padding: 60px 20px 100px 20px;
+  }
+  .name {
+    font-size: 40pt;
+    margin-top: 1cm;
+    margin-bottom: 2cm;
+    padding: 0.5rem 1rem;
+  }
+  .navbar-style {
+    font-size: 7pt;
+    padding: 3px 20px 3px 8px;
+  }
+}
+

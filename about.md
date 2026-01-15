@@ -1,15 +1,3 @@
-<img src="20260126_cvPic.png" class="photo">
-
-# Alexander Ruf
-
-**Physical & Theoretical Chemistry**  
-Astrochemistry · Data-driven Molecular Networks  
-
-rufalexan@gmail.com
-ORCID · Google Scholar · GitHub  
-
-<!--SPLIT-->
-
 ## Profile
 
 I am a physical and theoretical chemist working at the interface of astrochemistry,
