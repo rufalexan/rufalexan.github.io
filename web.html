@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Alexander Ruf</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+<!-- Top Navigation -->
+<nav class="topnav navbar-style" id="topnav"></nav>
+
+<!-- Page Content -->
+<div class="page">
+
+  <!-- Landing Section -->
+  <section id="start" class="left-section">
+    <strong class="name">Alexander Ruf</strong>
+    <strong>Teacher</strong><br><br>&<br><br>
+    <strong>Researcher</strong><br><br>
+    (Analytical Chemistry, Computational Chemistry, Astrochemistry, Data Science)
+    <img src="20260112_cvPic.png" class="profile">
+  </section>
+
+  <!-- Dynamic Sections -->
+  <div id="sections-container"></div>
+
+</div>
+
+<!-- Footer -->
+<footer class="navbar-style" id="footer">
+  rufalexan@gmail.com · rufalexan.github.io · 
+  <a href="https://www.linkedin.com/in/YOURNAME" class="icon">in</a> · 
+  <a href="https://scholar.google.com/citations?user=YOURID" class="icon">GS</a>
+</footer>
+
+<script>
+// -------------------- Section content --------------------
+// Only IDs are needed; titles derived from ID
+const sectionData = [
+  { id: "about", md: `
+I am a physical and theoretical chemist working at the interface of astrochemistry,
+molecular spectroscopy, and data-driven chemical network science.
+My research focuses on understanding how molecular complexity emerges and evolves
+in astrophysical environments, combining high-resolution experiments,
+computational modeling, and FAIR data infrastructures.
+` },
+  { id: "research", md: `
+A central contribution of my work is the development of data-driven chemical
+network approaches for high-dimensional astrochemical data.
+These methods move beyond target-based molecule lists and allow chemical
+complexity, reaction pathways, and molecular diversity to be quantified
+across laboratory, space-mission, and telescope datasets.
+
+My work integrates laboratory spectroscopy, mass spectrometry,
+quantum chemistry, and graph-based analytics to build predictive models
+of chemical evolution in interstellar and planetary environments.
+` },
+  { id: "fair_data", md: `
+I actively develop FAIR-compliant data and software infrastructures
+for astrochemistry and molecular spectroscopy, enabling reproducible,
+machine-readable, and interoperable chemical knowledge.
+My research group integrates experimental data, computational results,
+and network models into open and reusable scientific resources.
+` },
+  { id: "positions_awards", md: `
+- ORIGINS Excellence Cluster — Principal Investigator, Helmholtz Institute · TUM · LMU · Harvard CfA · University of Bern  
+- ACS Astrochemistry Dissertation Award  
+- International fellowships and space-mission collaborations
+` }
+];
+
+// Helper to derive title from ID
+function titleFromId(id) {
+  return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+}
+
+// -------------------- Generate Topnav --------------------
+const topnav = document.getElementById("topnav");
+sectionData.forEach(sec => {
+  const a = document.createElement("a");
+  a.href = `#${sec.id}`;
+  a.textContent = titleFromId(sec.id);
+  topnav.appendChild(a);
+});
+
+// -------------------- Generate Sections --------------------
+const container = document.getElementById("sections-container");
+sectionData.forEach(sec => {
+  const sectionEl = document.createElement("section");
+  sectionEl.id = sec.id;
+  sectionEl.className = "left-section";
+  sectionEl.innerHTML = `<h2>${titleFromId(sec.id)}</h2><div class="md-content"></div>`;
+  container.appendChild(sectionEl);
+  sectionEl.querySelector(".md-content").innerHTML = marked.parse(sec.md);
+});
+
+// -------------------- Show nav/footer on movement/touch --------------------
+let navTimeout;
+function showNav() {
+  document.querySelectorAll('.navbar-style').forEach(nav => nav.classList.add('active'));
+  clearTimeout(navTimeout);
+  navTimeout = setTimeout(() => {
+    document.querySelectorAll('.navbar-style').forEach(nav => nav.classList.remove('active'));
+  }, 1000); // decreased timeout to 1 second
+}
+document.addEventListener('mousemove', showNav);
+document.addEventListener('touchstart', showNav);
+</script>
+
+<!-- -------------------- CSS Below -------------------- -->
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 20pt;
+  background: #fff;
+  color: #111;
+}
+
+/* Landing name black box */
+.name {
+  font-size: 70pt;
+  font-weight: bold;
+  display: block;
+  text-align: center;
+  color: #fff;
+  background-color: #000;
+  padding: 1rem 2rem;
+  margin-top: 2cm;
+  margin-bottom: 4cm;
+  border-radius: 0.3rem;
+}
+
+/* Subline text */
+strong { font-weight: 600; color: #444; }
+
+/* Sections container width - adaptive, larger width and spacing */
+.left-section {
+  padding: 80px 10%;
+  max-width: 1400px;
+  text-align: left;
+  margin: 0 auto 500px auto; /* 80px bottom margin between sections */
+  scroll-margin-top: 80px;
+}
+
+/* Section titles */
+.left-section h2 { font-size: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #ddd; padding-bottom:0.2rem; }
+.left-section h3 { font-size:1.4rem; margin-top:1.5em; }
+
+/* Portrait right-aligned */
+.profile {
+  width: 20%;
+  max-width: 200px;
+  border-radius: 50%;
+  float: right;
+  margin-left: 2em;
+  margin-top: -5em;
+}
+
+/* Topnav and footer */
+.navbar-style {
+  font-family: "Courier New", monospace;
+  font-size: 8pt;
+  color: #666;
+  letter-spacing: 0.04em;
+  background: rgba(255,255,255,0.85);
+  padding: 4px 40px 4px 12px;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  position: fixed;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.topnav.navbar-style { top: 28px; }
+footer.navbar-style { bottom: 28px; }
+
+.navbar-style a { color: #666; text-decoration: none; margin-left: 0.6em; }
+.navbar-style a:hover { text-decoration: underline; }
+.icon { font-weight: 600; }
+.navbar-style.active { opacity: 1; }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* Mobile */
+@media (max-width:700px) {
+  .profile { width: 100px; margin-left:0; float:none; display:block; margin-top:1em; }
+  .left-section { padding:60px 5%; }
+  .name { font-size:40pt; margin-top:1cm; margin-bottom:2cm; padding:0.5rem 1rem; }
+  .navbar-style { font-size:7pt; padding:3px 20px 3px 8px; }
+}
+</style>
+
+</body>
+</html>
+
