@@ -1,17 +1,15 @@
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Alexander Ruf</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Markdown parser -->
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- FontAwesome for professional icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -24,11 +22,11 @@
   <!-- Landing Section -->
   <section id="start" class="left-section">
     <strong class="name">Alexander Ruf</strong>
-    <img src="20260112_cvPic.png" class="profile"><br>
-    <strong>Teacher</strong><br><br>
+    <img src="20260112_cvPic.png" class="profile">
+    <strong>Teacher</strong><br>
     <strong>Researcher</strong>
     (Analytical Chemistry, Computational Chemistry, Astrochemistry, Data Science)<br>
-    <img src="20250220_thisWorkshop.png" class="pic">
+    <img src="20250220_thisWorkshop.png" class="pic"><br>
   </section>
 
   <!-- Dynamic Sections Container -->
@@ -38,14 +36,15 @@
 
 <!-- Footer -->
 <footer class="navbar-style" id="footer">
-  rufalexan@gmail.com · rufalexan.github.io · 
-  <a href="https://www.linkedin.com/in/YOURNAME" class="icon">in</a> · 
-  <a href="https://scholar.google.com/citations?user=YOURID" class="icon">GS</a>
+  <a href="mailto:rufalexan@gmail.com"><i class="fa-solid fa-envelope"></i> rufalexan@gmail.com</a> 
+  <a href="https://rufalexan.github.io"><i class="fa-solid fa-globe"></i> rufalexan.github.io</a> 
+  <a href="https://www.linkedin.com/in/rufalexan/"><i class="fab fa-linkedin"></i> Linkedin</a> 
+  <a href="https://scholar.google.com/citations?hl=en&user=76kCiC8AAAAJ&view_op=list_works&sortby=pubdate"><i class="fa-solid fa-graduation-cap"></i> Google Scholar</a>
+  <a href="https://github.com/rufalexan"><i class="fab fa-github"></i> GitHub</a>  
 </footer>
 
 <script>
 // -------------------- Section content --------------------
-// Only IDs are needed; titles derived from ID
 const sectionData = [
   { id: "about", md: `
 I am a physical and theoretical chemist working at the interface of astrochemistry,
@@ -65,7 +64,7 @@ My work integrates laboratory spectroscopy, mass spectrometry,
 quantum chemistry, and graph-based analytics to build predictive models
 of chemical evolution in interstellar and planetary environments.
 
-**fair_data**:
+**FAIR Data & Open Science**:  
 I actively develop FAIR-compliant data and software infrastructures
 for astrochemistry and molecular spectroscopy, enabling reproducible,
 machine-readable, and interoperable chemical knowledge.
@@ -79,9 +78,9 @@ and network models into open and reusable scientific resources.
 ` }
 ];
 
-// Helper to derive title from ID
+// Helper: derive title from ID
 function titleFromId(id) {
-  return id.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+  return id.charAt(0).toUpperCase() + id.slice(1);
 }
 
 // -------------------- Generate Topnav --------------------
@@ -111,13 +110,13 @@ function showNav() {
   clearTimeout(navTimeout);
   navTimeout = setTimeout(() => {
     document.querySelectorAll('.navbar-style').forEach(nav => nav.classList.remove('active'));
-  }, 1000); // 1 second timeout
+  },2000); //  seconds timeout
 }
 document.addEventListener('mousemove', showNav);
 document.addEventListener('touchstart', showNav);
 </script>
 
-<!-- -------------------- CSS Below -------------------- -->
+<!-- -------------------- CSS -------------------- -->
 <style>
 body {
   margin: 0;
@@ -137,12 +136,12 @@ body {
   color: #fff;
   background-color: #000;
   padding: 1rem 2rem;
-  margin-top: 2cm;
-  margin-bottom: 4cm;
+  margin-top: 0cm;
+  margin-bottom: 3cm;
   border-radius: 0.3rem;
 }
 
-/* Subline text */
+/* Landing subline text left-aligned */
 #start strong:not(.name) {
   text-align: left;
   display: block;
@@ -150,31 +149,26 @@ body {
   color: #444;
 }
 
-/* Landing description paragraph left-aligned */
-#start p {
-  text-align: left;
-}
-
-/* Sections container width - adaptive, larger width and spacing */
+/* Sections container width and spacing */
 .left-section {
   padding: 80px 10%;
   max-width: 1400px;
   text-align: left;
-  margin: 0 auto 500px auto; /* 100px bottom spacing between sections */
+  margin: 0 auto 300px auto; /* vertical spacing between sections */
   scroll-margin-top: 80px;
 }
 
-/* Markdown content justified for all sections except landing */
+/* Markdown content justified */
 #sections-container p,
 #sections-container li {
   text-align: justify;
   text-align-last: left;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 /* Section titles */
-.left-section h2 { font-size: 2rem; margin-bottom: 1rem; border-bottom: 0px solid #ddd; padding-bottom:.5cm; }
-.left-section h3 { font-size:1.4rem; margin-top:1.5em; }
+.left-section h2 { font-size: 40pt; margin-top: 15cm; margin-bottom:-0cm, padding-bottom:2cm}}
+.left-section h3 { font-size:1.4rem; margin-top:0cm; }
 
 /* Portrait right-aligned */
 .profile {
@@ -186,23 +180,23 @@ body {
   margin-top: -2cm;
 }
 
-.pic {
+.pic{
   width: 100%;
-  float:center;
+  float: right;
   margin-right: 0cm;
   margin-top: 2cm;
+  margin-bottom: 2cm;
 }
-
 /* Topnav and footer */
 .navbar-style {
   font-family: "Courier New", monospace;
   font-size: 15pt;
-  color: #666;
+  color: #fff;
   letter-spacing: 0.04em;
-  background: rgba(255,255,255,0.85);
+  background: rgba(0,0,0,0.7); /* more transparent */
   padding: 4px 40px 4px 12px;
   border-radius: 6px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.3);
   position: fixed;
   right: 0;
   opacity: 0;
@@ -213,9 +207,19 @@ body {
 .topnav.navbar-style { top: 28px; }
 footer.navbar-style { bottom: 28px; }
 
-.navbar-style a { color: #666; text-decoration: none; margin-left: 0.6em; }
-.navbar-style a:hover { text-decoration: underline; }
-.icon { font-weight: 600; }
+.navbar-style a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 0.4em;
+  display: inline-flex;
+  align-items: center;
+}
+
+.navbar-style a i {
+  margin-right: 0.15em;
+}
+
+.navbar-style a:hover { color: #ddd; }
 .navbar-style.active { opacity: 1; }
 
 /* Smooth scroll */
@@ -234,12 +238,4 @@ html { scroll-behavior: smooth; }
 </html>
 
 
-
-
-
-
-
-
-
-
-<!--  python -m http.server   8000  -->
+<!--     python -m http.server          http://localhost:8000       -->
