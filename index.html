@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,13 +24,14 @@
   <!-- Landing Section -->
   <section id="start" class="left-section">
     <strong class="name">Alexander Ruf</strong>
-    <strong>Teacher</strong><br><br>&<br><br>
-    <strong>Researcher</strong><br><br>
-    (Analytical Chemistry, Computational Chemistry, Astrochemistry, Data Science)
-    <img src="20260112_cvPic.png" class="profile">
+    <img src="20260112_cvPic.png" class="profile"><br>
+    <strong>Teacher</strong><br><br>
+    <strong>Researcher</strong>
+    (Analytical Chemistry, Computational Chemistry, Astrochemistry, Data Science)<br>
+    <img src="20250220_thisWorkshop.png" class="pic">
   </section>
 
-  <!-- Dynamic Sections -->
+  <!-- Dynamic Sections Container -->
   <div id="sections-container"></div>
 
 </div>
@@ -56,15 +64,15 @@ across laboratory, space-mission, and telescope datasets.
 My work integrates laboratory spectroscopy, mass spectrometry,
 quantum chemistry, and graph-based analytics to build predictive models
 of chemical evolution in interstellar and planetary environments.
-` },
-  { id: "fair_data", md: `
+
+**fair_data**:
 I actively develop FAIR-compliant data and software infrastructures
 for astrochemistry and molecular spectroscopy, enabling reproducible,
 machine-readable, and interoperable chemical knowledge.
 My research group integrates experimental data, computational results,
 and network models into open and reusable scientific resources.
 ` },
-  { id: "positions_awards", md: `
+  { id: "CV", md: `
 - ORIGINS Excellence Cluster — Principal Investigator, Helmholtz Institute · TUM · LMU · Harvard CfA · University of Bern  
 - ACS Astrochemistry Dissertation Award  
 - International fellowships and space-mission collaborations
@@ -103,7 +111,7 @@ function showNav() {
   clearTimeout(navTimeout);
   navTimeout = setTimeout(() => {
     document.querySelectorAll('.navbar-style').forEach(nav => nav.classList.remove('active'));
-  }, 1000); // decreased timeout to 1 second
+  }, 1000); // 1 second timeout
 }
 document.addEventListener('mousemove', showNav);
 document.addEventListener('touchstart', showNav);
@@ -115,7 +123,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: 20pt;
+  font-size: 25pt;
   background: #fff;
   color: #111;
 }
@@ -135,35 +143,60 @@ body {
 }
 
 /* Subline text */
-strong { font-weight: 600; color: #444; }
+#start strong:not(.name) {
+  text-align: left;
+  display: block;
+  margin-bottom: 0.5em;
+  color: #444;
+}
+
+/* Landing description paragraph left-aligned */
+#start p {
+  text-align: left;
+}
 
 /* Sections container width - adaptive, larger width and spacing */
 .left-section {
   padding: 80px 10%;
   max-width: 1400px;
   text-align: left;
-  margin: 0 auto 500px auto; /* 80px bottom margin between sections */
+  margin: 0 auto 500px auto; /* 100px bottom spacing between sections */
   scroll-margin-top: 80px;
 }
 
+/* Markdown content justified for all sections except landing */
+#sections-container p,
+#sections-container li {
+  text-align: justify;
+  text-align-last: left;
+  line-height: 1.5;
+}
+
 /* Section titles */
-.left-section h2 { font-size: 2rem; margin-bottom: 1rem; border-bottom: 2px solid #ddd; padding-bottom:0.2rem; }
+.left-section h2 { font-size: 2rem; margin-bottom: 1rem; border-bottom: 0px solid #ddd; padding-bottom:.5cm; }
 .left-section h3 { font-size:1.4rem; margin-top:1.5em; }
 
 /* Portrait right-aligned */
 .profile {
-  width: 20%;
+  width: 25%;
   max-width: 200px;
   border-radius: 50%;
   float: right;
-  margin-left: 2em;
-  margin-top: -5em;
+  margin-right: 0cm;
+  margin-top: -2cm;
+}
+
+.pic {
+  width: 100%;
+  float:center;
+  margin-right: 0cm;
+  margin-top: 2cm;
 }
 
 /* Topnav and footer */
 .navbar-style {
   font-family: "Courier New", monospace;
-  font-size: 8pt;
+  font-size: 15pt;
   color: #666;
   letter-spacing: 0.04em;
   background: rgba(255,255,255,0.85);
@@ -200,3 +233,13 @@ html { scroll-behavior: smooth; }
 </body>
 </html>
 
+
+
+
+
+
+
+
+
+
+<!--  python -m http.server   8000  -->
